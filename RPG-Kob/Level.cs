@@ -35,7 +35,6 @@ namespace RPG_Kob
                 foreach (char l in line)
                 {
                     map_array[x, y] = l;
-
                     if (l == 'o') player_loc = new Point(x, y);
                     else if (l == 'z')
                     {

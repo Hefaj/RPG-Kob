@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace RPG_Kob
 {
@@ -103,55 +104,68 @@ namespace RPG_Kob
             @"      ▀▀█▀▀▀▀░░░░░░█"};
         static readonly int[] h_s = { 10, 10, 10, 10 };
 
-        private readonly Dictionary<char, string> enemies_all;
+        static Dictionary<char, string> enemies_all = new Dictionary<char, string>();
+        static Dictionary<char, string[]> models = new Dictionary<char, string[]>();
+        static Dictionary<char, int[]> stats = new Dictionary<char, int[]>();
         private readonly string[] model;
 
         public string[] Model { get { return model; } }
+
+
+        //****
+        static List<string> forModel = new List<string>();
+
+        static Enemy()
+        {
+            ReadFromFileAllMobs();
+        }
+
+        private static void ReadFromFileAllMobs()
+        {
+            try
+            {
+                string[] dirs = Directory.GetFiles(@"C:\Users\hefaj\source\repos\RPG-Kob\RPG-Kob\mobs", "mob_*");
+                string[] alias = new string[6];
+                if (dirs.Length == default(int)) throw new Exception("Nie znaleziono zadnego pliku z mobami [pliki w pliku mobs o nazwie mob_[].txt ]");
+
+                foreach (var path in dirs)
+                {
+                    string[] lines = File.ReadAllLines(path);
+
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        if (i == default(int))
+                        {
+                            alias = lines[i].Split(';');
+                            enemies_all.Add(alias[0][0], alias[1]);
+                            stats.Add(alias[0][0], new int[] { int.Parse(alias[2]), int.Parse(alias[3]), int.Parse(alias[4]), int.Parse(alias[5]) });
+                        }
+                        else
+                            forModel.Add(lines[i]);
+                    }
+                    models.Add(alias[0][0], forModel.ToArray());
+                    forModel.Clear();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+
+        // *****
+
         public Enemy(char type, Point location) : base(location)
         {
-            enemies_all = new Dictionary<char, string>
-            { 
-                { 'x', "Proces"},
-                { 'w', "Alokator Płytowy"},
-                { 'k', "K'Obs"},
-                { 'u', "USOS"},
-                { 'h', "???"},
-            };
-
+            
             this.Type = type;
             this.name = enemies_all[type];
 
-            if (type == 'k')
-            {
-                this.model = k;
-                this.SetStats(k_s);
-                this.exp = 100;
-            } 
-            else if (type == 'w')
-            {
-                this.model = w;
-                this.SetStats(w_s);
-                this.exp = 100;
-            }
-            else if (type == 'u')
-            {
-                this.model = u;
-                this.SetStats(u_s);
-                this.exp = 100;
-            }
-            else if (type == 'h')
-            {
-                this.model = h;
-                this.SetStats(h_s);
-                this.exp = 100;
-            }
-            else
-            {
-                this.model = x;
-                this.SetStats(x_s);
-                this.exp = 100;
-            }
-                
+            this.model = models[type];
+            this.SetStats(stats[type]);
+
+            //this.exp = 100;   
         }
 
         public bool CheckLoc(Point p)

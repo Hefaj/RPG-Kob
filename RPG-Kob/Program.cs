@@ -258,9 +258,10 @@ namespace RPG_Kob
             Thread oThread = new Thread(new ThreadStart(PlaySong));
             oThread.Start();
 
-            
+
             //oThread.Abort();
             //Threading.Task t = Threading.Task.Run((Action)PlaySong);
+
 
             // inicjacja poziomow
             try
@@ -284,7 +285,6 @@ namespace RPG_Kob
             
             if (Levels.Count == 0) Environment.Exit(0);
 
-
             // okno wyboru klasy
             ChoiceClass cc = new ChoiceClass();
             Stats s = cc.Select();
@@ -293,9 +293,9 @@ namespace RPG_Kob
             // inicjacja gracza
             Player gracz = new Player("Student", Levels[map_level].Player_loc, s);
 
-            dialog.Print(0);
-            dialog.Print(1);
-            dialog.Print(2);
+            //dialog.Print(0);
+            //dialog.Print(1);
+            //dialog.Print(2);
 
             Console.Clear();
 
