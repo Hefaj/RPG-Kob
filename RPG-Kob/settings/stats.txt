@@ -1,0 +1,2 @@
+﻿kujon;10;10;10;10;Codzienne zakuwanie powoduje, że posiadasz dużo wiedzy, niestety dźwiganie książek i czytanie dokumentacji prowadzi do niewielkiej ilości siły.
+sciagacz;20;20;20;20;Mistrz ściągania potrafi przepisać słowo w słowo, to co znajdzie na Wikipedii, wieloletnie doświadczenie doprowadziło, że posiadasz refleks na unikanie i znajdywanie słabych punktów przeciwnika.

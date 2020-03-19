@@ -1,0 +1,14 @@
+﻿(Student) Dlaczego to sobie zrobiłem?!... Trzeba było skończyć zawodówkę i iść do roboty. Już bym miał 4k na rękę. A teraz muszę skończyć te studia.
+(Student) Może nie będzie tak złe. Podobno pierwszy rok najgorszy. Później już tylko obrona i praca 20k+.
+(Student) Dobra wystarczy, że stąd wyjdę, do roboty!
+(Student) Czym, że to jest?!
+(Proces) Kim jesteś? Kolejny rywal? Nie wyglądasz na inny Proces... Ale mnie nie oszukasz!
+(Proces) Pewnie chcesz zagrabić całą pamięć dla siebie.
+(Student) A to szkaradztwo? Jakieś płyty?
+(Alokator Płytowy) Reeeeeeeeeeeee....
+(Student) ???...
+(USOS) ???
+(USOS) >synchronizacja danych<
+(???) ?
+(Student) Co to za mroczna komnata?
+(K'Obs) Może i przeczytałeś całego Tanenbaum, ale czy RUZUMIESZ?
