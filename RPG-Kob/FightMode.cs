@@ -7,7 +7,7 @@ namespace RPG_Kob
     class FightMode
     {
 
-        // TODO: Zamienić za zczytywanie z statycznie utworzonego słownika
+        // TODO: Zamienić za zczytywanie z statycznie utworzonego słownika, doddac do pliku z mobem wiersze dialogu
         private static readonly Dictionary<char, int[]> _first_time_enemy = new Dictionary<char, int[]>
                     {
                         { 'x', new int[]{ 0,3,4,5 }},
