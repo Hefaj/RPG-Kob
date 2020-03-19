@@ -12,7 +12,7 @@ namespace RPG_Kob
         public int Exp { get { return exp; } }
         
         static readonly string[] k =
-        {@" <_\" ,
+        {@" <_\",
          @"    \\" ,
          @"      ＼(o_o )" ,
          @"        >　-\" ,
