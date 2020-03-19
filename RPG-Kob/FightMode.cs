@@ -6,7 +6,9 @@ namespace RPG_Kob
 {
     class FightMode
     {
-        private static Dictionary<char, int[]> _first_time_enemy = new Dictionary<char, int[]>
+
+        // TODO: Zamienić za zczytywanie z statycznie utworzonego słownika
+        private static readonly Dictionary<char, int[]> _first_time_enemy = new Dictionary<char, int[]>
                     {
                         { 'x', new int[]{ 0,3,4,5 }},
                         { 'w', new int[]{ 0,6,7 } },

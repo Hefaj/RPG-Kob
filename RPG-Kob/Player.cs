@@ -6,7 +6,7 @@ namespace RPG_Kob
 {
     class Player : GameObject
     {
-        private List<Item> items_list = new List<Item>();
+        private readonly List<Item> items_list = new List<Item>();
 
         private readonly string[] model = 
         {@"              " ,
@@ -24,10 +24,10 @@ namespace RPG_Kob
          @"              " ,
          @"              " ,
          @"              " };
-        private int[] stats;
+        private readonly int[] stats;
 
         private int exp;
-        private int exp_need_to_level;
+        private readonly int exp_need_to_level;
         private int hp_max;
         private int exp_point;
 

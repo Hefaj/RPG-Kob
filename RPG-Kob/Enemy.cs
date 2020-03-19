@@ -7,113 +7,20 @@ namespace RPG_Kob
 {
     class Enemy : GameObject
     {
-        private int exp;
         public char Type;
 
-        public int Exp { get { return exp; } }
-        
-        static readonly string[] k =
-        {@" <_\",
-         @"    \\" ,
-         @"      ＼(o_o )" ,
-         @"        >　-\" ,
-         @"      /    _＼" ,
-         @"     /   /  ＼＼" ,
-         @"    |   /     \_>" ,
-         @"    /　/" ,
-         @"   /　/|" ,
-         @"  ( ( \" ,
-         @"　|　|  ＼" ,
-         @"　| / ＼  )" ,
-         @"　| |  ) /" ,
-         @" /  ) L_|" ,
-         @"(_／" };
-        static readonly int[] k_s = { 10, 10, 10, 10 };
+        public int Exp { get; }
 
-        static readonly string[] w =
-        {@"╚═(o.o)═╝" ,
-        @"╚═(███)═╝" ,
-        @"╚═(███)═╝" ,
-        @" ╚═(███)═╝" ,
-        @"  ╚═(███)═╝" ,
-        @" ╚═(███)═╝" ,
-        @" ╚═(███)═╝" ,
-        @"  ╚═(███)═╝" ,
-        @" ╚═(███)═╝" ,
-        @"╚═(███)═╝" ,
-        @"   ╚(███)╝" ,
-        @" ╚═(███)═╝" ,
-        @"  ╚(██)╝" ,
-        @"   (█)" ,
-        @"    *" };
-
-        static readonly int[] w_s = { 10, 10, 10, 10 };
-
-        static readonly string[] x =
-        {@"╚═(o.o)═╝" ,
-        @"╚═()═╝" ,
-        @"╚═()═╝" ,
-        @" ╚═()═╝" ,
-        @"  ╚═()═╝" ,
-        @" ╚═()═╝" ,
-        @" ╚═()═╝" ,
-        @"  ╚═()═╝" ,
-        @" ╚═()═╝" ,
-        @"╚═()═╝" ,
-        @"   ╚()╝" ,
-        @" ╚═()═╝" ,
-        @"  ╚()╝" ,
-        @"   ()" ,
-        @"    *" };
-        static readonly int[] x_s = { 10, 10, 10, 10 };
-
-        static readonly string[] u =
-           {@"      ░▄██▄░░░▄▄░░░░░",
-            @"   ░░░█▀█▀█░░░░▀█▄░░░",
-            @"    ░░██▄██░░░░░░▀█▄░░",
-            @"    ░░░▀▄▀░░░▄▄▄▄▄▀▀░░",
-            @" ░░░░▄▄▄██▀▀▀▀░░░░░░░",
-            @" ░░░█▀▄▄▄█▀▀▀░░",
-            @" ░░░█░▄▄▄██▀▀▀░░",
-            @"░▄░█░░░▄▄▀█▀▀▀ ░░",
-            @"░▀██░░░▄▀▀█▀▀▀ ░░",
-            @" ░░░░░░░▄▄██▄▄░░░",
-            @"    ░░░░▀███▀█░▄░░",
-            @"     ░░░█▀▄▀▄▀█▄░░",
-            @"    ░░░█▀░░░░░░░█░░",
-            @"    ░░░█░░░░░░░░█░░",
-            @"    ░░░█░░░░░░░░█░░",
-        };
-        static readonly int[] u_s = { 10, 10, 10, 10 };
-
-        static readonly string[] h =
-         {  @"     ▄▄▀▀▀██▀▀▀▀▀▀▀▄",
-            @"  ▄▄▀░░░░░░░░░░░░░░░▀█",
-            @"  █░░░░░▀▄░░▄▀░░░░░░░░█",
-            @"   ██▄░░▀▄▀▀▄▀░░▄██▀░█",
-            @"  █▀█░▀░░░▀▀░░░▀░█▀░░█",
-            @"  █░░▀▀░░░░░░░░▀▀░░░░░█",
-            @" █░░░░░░░░░░░░░░░░░░░█",
-            @"  █░░▀▄░░░░▄▀░░░░░░░░█",
-            @"  █░░░░░░░░░░░▄▄░░░░█",
-            @"   █▀██▀▀▀▀██▀░░░░░░█",
-            @"   █░░▀████▀░░░░░░░█",
-            @"    █░░░░░░░░░░░░▄█",
-            @"     ██░░░░░█▄▄▀▀░█",
-            @"      ▀▀█▀▀▀▀░░░░░░█",
-            @"      ▀▀█▀▀▀▀░░░░░░█"};
-        static readonly int[] h_s = { 10, 10, 10, 10 };
-
-        static Dictionary<char, string> enemies_all = new Dictionary<char, string>();
-        static Dictionary<char, string[]> models = new Dictionary<char, string[]>();
-        static Dictionary<char, int[]> stats = new Dictionary<char, int[]>();
+        static readonly Dictionary<char, string> enemies_all = new Dictionary<char, string>();
+        static readonly Dictionary<char, string[]> models = new Dictionary<char, string[]>();
+        static readonly Dictionary<char, int[]> stats = new Dictionary<char, int[]>();
         private readonly string[] model;
 
         public string[] Model { get { return model; } }
 
 
         //****
-        static List<string> forModel = new List<string>();
+        static readonly List<string> forModel = new List<string>();
 
         static Enemy()
         {
@@ -126,7 +33,7 @@ namespace RPG_Kob
             {
                 string[] dirs = Directory.GetFiles(@"C:\Users\hefaj\source\repos\RPG-Kob\RPG-Kob\mobs", "mob_*");
                 string[] alias = new string[6];
-                if (dirs.Length == default(int)) throw new Exception("Nie znaleziono zadnego pliku z mobami [pliki w pliku mobs o nazwie mob_[].txt ]");
+                if (dirs.Length == default) throw new Exception("Nie znaleziono zadnego pliku z mobami [pliki w pliku mobs o nazwie mob_[].txt ]");
 
                 foreach (var path in dirs)
                 {
@@ -134,7 +41,7 @@ namespace RPG_Kob
 
                     for (int i = 0; i < lines.Length; i++)
                     {
-                        if (i == default(int))
+                        if (i == default)
                         {
                             alias = lines[i].Split(';');
                             enemies_all.Add(alias[0][0], alias[1]);
@@ -153,9 +60,6 @@ namespace RPG_Kob
             }
         }
 
-
-        // *****
-
         public Enemy(char type, Point location) : base(location)
         {
             
@@ -165,7 +69,7 @@ namespace RPG_Kob
             this.model = models[type];
             this.SetStats(stats[type]);
 
-            //this.exp = 100;   
+            this.Exp = 100;   
         }
 
         public bool CheckLoc(Point p)

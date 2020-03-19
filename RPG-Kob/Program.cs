@@ -233,14 +233,11 @@ namespace RPG_Kob
             }
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
-
-            //TODO: 
-            // przerobic muzyke do pliku i puszczac za pomoca Music()
-            // zrobić zczytywanie przeciwnikow z plikow 
-            // balans
-            // ksiazke z bufami -> dają one hila, zwiekszony wspolczynnik hitow, unikow, dodatkowe obrazenia podstawowe
+            //TODO: Rozwinąc itemy, leczenie jest ale co innego?, klucze?, poty na mane, poty z expem
+            //TODO: balans, pozmieniac w plikach statystyki
+            //TODO: ksiazke z bufami -> dają one hila, zwiekszony wspolczynnik hitow, unikow, dodatkowe obrazenia podstawowe
 
             //Music musicSong = new Music();
             //musicSong.PlaySong("TravelMusic");
@@ -255,6 +252,7 @@ namespace RPG_Kob
             bool combat = false;
 
 
+            // TODO: Wykorzystać klase Music, domyślnie ma grac ta co teraz, inne muzyki mają być zczytywane z pliku
             Thread oThread = new Thread(new ThreadStart(PlaySong));
             oThread.Start();
 

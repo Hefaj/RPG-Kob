@@ -8,14 +8,15 @@ namespace RPG_Kob
     class Level
     {
         private const int width = 20, height = 10;
-        private char[,] map_array = new char[width, height];
+        private readonly char[,] map_array = new char[width, height];
         private Point player_loc, next_level_pos, back_level_pos = null;
 
-        char[] enemies = {'x','k','w','u','h'};
-        char[] items = { 'a', 'c' };
+        // TODO: Pozbyć się stałych
+        readonly char[] enemies = {'x','k','w','u','h'};
+        readonly char[] items = { 'a', 'c' };
 
-        private List<Enemy> enemies_list = new List<Enemy>();
-        private List<Item> items_list = new List<Item>();
+        private readonly List<Enemy> enemies_list = new List<Enemy>();
+        private readonly List<Item> items_list = new List<Item>();
         
         public Point Player_loc { get { return player_loc; } }
 

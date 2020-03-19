@@ -7,9 +7,9 @@ namespace RPG_Kob
 
     public class Stats
     {
-        private string name;
-        private string desc;
-        private int[] stat;
+        private readonly string name;
+        private readonly string desc;
+        private readonly int[] stat;
         
         public int[] Stat { get => stat; }
 
@@ -30,7 +30,7 @@ namespace RPG_Kob
 
     public class ChoiceClass
     {
-        private List<Stats> allClass = new List<Stats>();
+        private readonly List<Stats> allClass = new List<Stats>();
 
         public ChoiceClass()
         {

@@ -31,5 +31,10 @@ namespace RPG_Kob
             if ((this.X < 0 || this.X > width) || (this.Y < 0 || this.Y > height)) return true;
             return false;
         }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(x, y, X, Y);
+        }
     }
 }
