@@ -16,10 +16,10 @@ namespace RPG_Kob
         static readonly Dictionary<char, int[]> stats = new Dictionary<char, int[]>();
         private readonly string[] model;
 
+        public static readonly Dictionary<char, int[]> _first_time_enemy = new Dictionary<char, int[]>();
+
         public string[] Model { get { return model; } }
 
-
-        //****
         static readonly List<string> forModel = new List<string>();
 
         static Enemy()
@@ -33,6 +33,7 @@ namespace RPG_Kob
             {
                 string[] dirs = Directory.GetFiles(@"C:\Users\hefaj\source\repos\RPG-Kob\RPG-Kob\mobs", "mob_*");
                 string[] alias = new string[6];
+
                 if (dirs.Length == default) throw new Exception("Nie znaleziono zadnego pliku z mobami [pliki w pliku mobs o nazwie mob_[].txt ]");
 
                 foreach (var path in dirs)
@@ -46,6 +47,13 @@ namespace RPG_Kob
                             alias = lines[i].Split(';');
                             enemies_all.Add(alias[0][0], alias[1]);
                             stats.Add(alias[0][0], new int[] { int.Parse(alias[2]), int.Parse(alias[3]), int.Parse(alias[4]), int.Parse(alias[5]) });
+
+                            List<int> dialogList = new List<int>() { 0 };
+                            for (int j = 6; j < alias.Length; j++)
+                                dialogList.Add(int.Parse(alias[j]));
+                            _first_time_enemy.Add(alias[0][0], dialogList.ToArray());
+
+
                         }
                         else
                             forModel.Add(lines[i]);

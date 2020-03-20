@@ -1,4 +1,8 @@
-﻿x;Proces;10;10;10;10;3;4;5
+﻿[znak];[Pełna nazwa];[siła];[zrecznosc];[witalnosc];[wiesza];[strony dzialogowe z pliku dialog.txt]
+Przykład:
+x;Proces;10;10;10;10;3;4;5
+[model, (musi być 15) lini kodu reprezentujace model]
+Przykład:
 ╚═(o.o)═╝
 ╚═()═╝
 ╚═()═╝

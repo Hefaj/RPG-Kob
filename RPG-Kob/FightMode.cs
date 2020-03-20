@@ -6,17 +6,6 @@ namespace RPG_Kob
 {
     class FightMode
     {
-
-        // TODO: Zamienić za zczytywanie z statycznie utworzonego słownika, doddac do pliku z mobem wiersze dialogu
-        private static readonly Dictionary<char, int[]> _first_time_enemy = new Dictionary<char, int[]>
-                    {
-                        { 'x', new int[]{ 0,3,4,5 }},
-                        { 'w', new int[]{ 0,6,7 } },
-                        { 'u', new int[]{ 0,8,9,10 } },
-                        { 'h', new int[]{ 0,11 } },
-                        { 'k', new int[]{ 0,12,13 } },
-                    };
-
         public FightMode(Player p, ConsoleKey w, Level l)
         {
             Dictionary<ConsoleKey, Point> loc = new Dictionary<ConsoleKey, Point>
@@ -29,12 +18,13 @@ namespace RPG_Kob
 
             Enemy enemy = l.FindEnemy(p.Get_Loc + loc[w]);
 
-            if (_first_time_enemy[enemy.Type][0] == 0)
+
+            if (Enemy._first_time_enemy[enemy.Type][0] == 0)
             {
                 DialogMode dialog = new DialogMode();
-                _first_time_enemy[enemy.Type][0]=-1;
+                Enemy._first_time_enemy[enemy.Type][0]=-1;
 
-                foreach(int i in _first_time_enemy[enemy.Type])
+                foreach(int i in Enemy._first_time_enemy[enemy.Type])
                     if (i != -1) dialog.Print(i);
                 //Console.ReadKey();
             }

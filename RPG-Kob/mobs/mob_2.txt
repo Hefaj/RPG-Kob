@@ -1,4 +1,4 @@
-﻿w;Alokator Płytowy;10;10;10;10
+﻿w;Alokator Płytowy;10;10;10;10;6;7
 ╚═(o.o)═╝
 ╚═(███)═╝
 ╚═(███)═╝

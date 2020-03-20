@@ -17,9 +17,11 @@ namespace RPG_Kob
 
         public bool Only_Combat { get { return only_Combat; } }
 
+        //public static Dict
         private Dictionary<char, string> items_all;
         public Item(char type, Point location)
         {
+            // readItemsFromFile();
             items_all = new Dictionary<char, string>
             {
                 { 'a', "Semafor"},

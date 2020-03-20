@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-
+using System.Linq;
 
 namespace RPG_Kob
 {
@@ -11,8 +11,9 @@ namespace RPG_Kob
         private readonly char[,] map_array = new char[width, height];
         private Point player_loc, next_level_pos, back_level_pos = null;
 
+        
+        readonly char[] enemies = Enemy._first_time_enemy.Select(i => i.Key).ToArray();
         // TODO: Pozbyć się stałych
-        readonly char[] enemies = {'x','k','w','u','h'};
         readonly char[] items = { 'a', 'c' };
 
         private readonly List<Enemy> enemies_list = new List<Enemy>();
