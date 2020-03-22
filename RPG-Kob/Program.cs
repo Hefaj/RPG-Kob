@@ -7,241 +7,12 @@ using static System.Console;
 
 namespace RPG_Kob
 {
-    class Program
+    public class Program
     {
-        static bool music = true;
-        static void PlaySong()
-        {
-            //###################### by J0keR  ##################
-            // zmodyfikowane
-            while (music)
-            {
-                Beep(739, 200);
-                Beep(783, 200);
-                Beep(783, 200);
-                Beep(739, 200);
-                Beep(783, 200);
-                Beep(783, 200);
-                Beep(739, 200);
-                Beep(83, 200);
-                Beep(880, 200);
-                Beep(830, 200);
-                Beep(880, 200);
-                Beep(987, 400);
-
-                Beep(880, 200);
-                Beep(783, 200);
-                Beep(698, 200);
-                Beep(739, 200);
-                Beep(78, 200);
-                Beep(783, 200);
-                Beep(739, 200);
-                Beep(783, 200);
-                Beep(783, 200);
-                Beep(739, 200);
-                Beep(783, 200);
-                Beep(880, 200);
-                Beep(830, 200);
-                Beep(880, 200);
-                Beep(987, 400);
-
-                System.Threading.Thread.Sleep(200);
-
-                Beep(1108, 10);
-                Beep(1174, 200);
-                Beep(1480, 10);
-                Beep(1568, 200);
-
-
-                System.Threading.Thread.Sleep(200);
-                Beep(739, 200);
-                Beep(783, 200);
-                Beep(783, 200);
-                Beep(739, 200);
-                Beep(783, 200);
-                Beep(783, 200);
-                Beep(739, 200);
-                Beep(783, 200);
-                Beep(880, 200);
-                Beep(830, 200);
-                Beep(880, 200);
-                Beep(987, 400);
-
-                Beep(880, 200);
-                Beep(783, 200);
-                Beep(698, 200);
-                Beep(659, 200);
-                Beep(698, 200);
-                Beep(784, 200);
-                Beep(880, 400);
-                Beep(784, 200);
-                Beep(698, 200);
-                Beep(659, 200);
-
-
-
-                Beep(587, 200);
-                Beep(659, 200);
-                Beep(698, 200);
-                Beep(784, 400);
-                Beep(698, 200);
-                Beep(659, 200);
-                Beep(587, 200);
-
-
-
-                Beep(523, 200);
-                Beep(587, 200);
-                Beep(659, 200);
-                Beep(698, 400);
-                Beep(659, 200);
-                Beep(587, 200);
-                Beep(493, 200);
-                Beep(523, 200);
-                System.Threading.Thread.Sleep(400);
-                Beep(349, 400);
-                Beep(392, 200);
-                Beep(329, 200);
-                Beep(523, 200);
-                Beep(493, 200);
-                Beep(466, 200);
-
-
-
-                Beep(440, 200);
-                Beep(493, 200);
-                Beep(523, 200);
-                Beep(880, 200);
-                Beep(493, 200);
-                Beep(880, 200);
-                Beep(1760, 200);
-                Beep(440, 200);
-
-                Beep(392, 200);
-                Beep(440, 200);
-                Beep(493, 200);
-                Beep(783, 200);
-                Beep(440, 200);
-
-                Beep(783, 200);
-                Beep(1568, 200);
-                Beep(392, 200);
-                Beep(349, 200);
-                Beep(392, 200);
-                Beep(440, 200);
-                Beep(698, 200);
-                Beep(415, 200);
-                Beep(698, 200);
-                Beep(139, 200);
-                Beep(349, 200);
-
-                Beep(329, 200);
-                Beep(311, 200);
-                Beep(329, 200);
-                Beep(659, 200);
-                Beep(698, 400);
-                Beep(783, 400);
-
-                Beep(440, 200);
-                Beep(493, 200);
-                Beep(523, 200);
-                Beep(880, 200);
-                Beep(493, 200);
-                Beep(880, 200);
-                Beep(1760, 200);
-                Beep(440, 200);
-
-                Beep(392, 200);
-                Beep(440, 200);
-                Beep(493, 200);
-                Beep(783, 200);
-                Beep(440, 200);
-                Beep(783, 200);
-                Beep(1568, 200);
-
-                Beep(392, 200);
-
-                Beep(349, 200);
-                Beep(392, 200);
-                Beep(440, 100);
-                Beep(698, 200);
-                Beep(659, 200);
-                Beep(698, 200);
-                Beep(739, 200);
-                Beep(783, 200);
-
-                Beep(392, 200);
-                Beep(392, 200);
-                Beep(392, 200);
-                Beep(392, 200);
-                Beep(196, 200);
-                Beep(196, 200);
-                Beep(196, 200);
-
-
-
-                Beep(185, 200);
-                Beep(196, 200);
-                Beep(185, 200);
-                Beep(196, 200);
-                Beep(207, 200);
-                Beep(220, 200);
-                Beep(233, 200);
-                Beep(246, 200);
-                /*
-                Console.Beep(1320, 500);
-                Console.Beep(990, 250);
-                Console.Beep(1056, 250);
-                Console.Beep(1188, 250);
-                Console.Beep(1320, 125);
-                Console.Beep(1188, 125);
-                Console.Beep(1056, 250);
-                Console.Beep(990, 250);
-                Console.Beep(880, 500);
-                Console.Beep(880, 250);
-                Console.Beep(1056, 250);
-                Console.Beep(1320, 500);
-                Console.Beep(1188, 250);
-                Console.Beep(1056, 250);
-                Console.Beep(990, 750);
-                Console.Beep(1056, 250);
-                Console.Beep(1188, 500);
-                Console.Beep(1320, 500);
-                Console.Beep(1056, 500);
-                Console.Beep(880, 500);
-                Console.Beep(880, 500);
-                System.Threading.Thread.Sleep(250);
-                Console.Beep(1188, 500);
-                Console.Beep(1408, 250);
-                Console.Beep(1760, 500);
-                Console.Beep(1584, 250);
-                Console.Beep(1408, 250);
-                Console.Beep(1320, 750);
-                Console.Beep(1056, 250);
-                Console.Beep(1320, 500);
-                Console.Beep(1188, 250);
-                Console.Beep(1056, 250);
-                Console.Beep(990, 500);
-                Console.Beep(990, 250);
-                Console.Beep(1056, 250);
-                Console.Beep(1188, 500);
-                Console.Beep(1320, 500);
-                Console.Beep(1056, 500);
-                Console.Beep(880, 500);
-                Console.Beep(880, 500);
-                System.Threading.Thread.Sleep(500);*/
-            }
-        }
+        public static bool music = true;
 
         static void Main()
         {
-            //TODO: Rozwinąc itemy, leczenie jest ale co innego?, klucze?, poty na mane, poty z expem
-            //TODO: balans, pozmieniac w plikach statystyki
-            //TODO: ksiazke z bufami -> dają one hila, zwiekszony wspolczynnik hitow, unikow, dodatkowe obrazenia podstawowe
-
-            //Music musicSong = new Music();
-            //musicSong.PlaySong("TravelMusic");
-
             Console.CursorVisible = false;
 
             DialogMode dialog = new DialogMode();
@@ -251,15 +22,9 @@ namespace RPG_Kob
 
             bool combat = false;
 
-
-            // TODO: Wykorzystać klase Music, domyślnie ma grac ta co teraz, inne muzyki mają być zczytywane z pliku
-            Thread oThread = new Thread(new ThreadStart(PlaySong));
-            oThread.Start();
-
-
-            //oThread.Abort();
-            //Threading.Task t = Threading.Task.Run((Action)PlaySong);
-
+            // Wczytanie muzyczek z pliku
+            Music _music = new Music();
+            _music.PlaySong("TravelMusic");
 
             // inicjacja poziomow
             try
@@ -334,12 +99,15 @@ namespace RPG_Kob
                             Console.WriteLine("(x) Wyłącz plecak");
                             string o = Console.ReadLine();
                             if (o == "x") break;
-                            gracz.Use_Item(o, combat);
+
+                            int i = 0;
+                            if (int.TryParse(o, out i))
+                                gracz.Use_Item(o, combat);
                         }
 
                         break;
                     case ConsoleKey.P:
-                        gracz.Get_Exp(100);
+                        gracz.Get_Exp(30);
                         break;
                     case ConsoleKey.M:
 
@@ -348,8 +116,9 @@ namespace RPG_Kob
                             music = !music;
                         else
                         {
-                            System.Threading.Tasks.Task.Run((Action)PlaySong);
+                            //System.Threading.Tasks.Task.Run((Action)PlaySong);
                             music = !music;
+                            _music.PlaySong("TravelMusic");
                         }
                         break;                   
                     default:

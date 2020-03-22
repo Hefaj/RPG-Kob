@@ -24,7 +24,7 @@ namespace RPG_Kob
             // readItemsFromFile();
             items_all = new Dictionary<char, string>
             {
-                { 'a', "Semafor"},
+                { 'a', "Ambicja"},
                 { 'c', "Wkuwanie"},
             };
 
@@ -34,7 +34,7 @@ namespace RPG_Kob
             if (type == 'a')
             {
                 only_Combat = true;
-                this.descript = "Pozwala na ograniczenie procesów w walce.";
+                this.descript = "Nic ci nie pomoże.";
             }
             else if (type == 'c')
             {

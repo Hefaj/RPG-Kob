@@ -7,6 +7,7 @@ namespace RPG_Kob
     class Player : GameObject
     {
         private readonly List<Item> items_list = new List<Item>();
+        private SpellBook spellBook;
 
         private readonly string[] model = 
         {@"              " ,
@@ -24,25 +25,40 @@ namespace RPG_Kob
          @"              " ,
          @"              " ,
          @"              " };
-        private readonly int[] stats;
+        private int[] stats;
+
+        private int[] statsCopy;
 
         private int exp;
         private readonly int exp_need_to_level;
         private int hp_max;
         private int exp_point;
+        public int mana;
+
+        private int lvl;
+
+
 
         public string[] Model { get { return model; } } 
 
         public Player(string name, Point location, Stats s) : base(location)
         {
-            stats = s.Stat;
 
+            lvl = 1;
+            stats = s.Stat;
             this.name = name;
             this.SetStats(stats);
+            
             exp = 0;
             exp_need_to_level = 100;
             hp_max = 100;
             exp_point = 0;
+            mana = _int * 10;
+            spellBook = new SpellBook();
+            statsCopy = new int[stats.Length];
+
+            CopyStats();
+
         }
 
         internal void NewLoc(Point p)
@@ -98,6 +114,51 @@ namespace RPG_Kob
             }
         }
 
+        public void ShowSpell()
+        {
+            spellBook.Print();
+        }
+
+        internal void Use_Spell(string o)
+        {
+            Console.WriteLine("Wybrano skila!");
+            
+            int i = int.Parse(o) - 1;
+
+            if (spellBook.CanCast(i, this.mana))
+            {
+                mana -= spellBook.ManaCost(i);
+
+                switch (spellBook.GetType(i))
+                {
+                    case 0:
+                        //      0 - przywraca hp
+                        this.hp += lvl * 10;
+                        break;
+                    case 1:
+                        //      1 - zwieksza sile
+                        this._str += lvl * 5;
+                        break;
+                    case 2:
+                        //      2 - zwieksza zrecznosc
+                        this._agi += lvl * 5;
+                        break;
+                }
+            }
+        }
+
+        public void CopyStats()
+        {
+            Array.Copy(stats, statsCopy, stats.Length);
+        }
+
+        public void ResetStats()
+        {
+            stats = null;
+            stats = new int[statsCopy.Length];
+            Array.Copy(statsCopy, stats, stats.Length);
+        }
+
         internal void Healing(int p)
         {
             this.hp += p;
@@ -109,17 +170,33 @@ namespace RPG_Kob
             Check_Level_Up();
         }
 
+        public void Poka()
+        {
+            foreach (var item in stats)
+                Console.WriteLine("stats: " + item);
+            foreach (var item in statsCopy)
+                Console.WriteLine("CopyStats: " + item);
+
+            Console.ReadLine();
+        }
+
         private void Check_Level_Up()
         {
             if (exp >= exp_need_to_level)
+            {
                 Level_Up();
+                exp = 0;
+            }
+               
         }
 
         private void Level_Up()
         {
+            mana = 100;
             hp_max += 10;
             hp = hp_max;
             exp_point = 2;
+            lvl++;
             Console.Clear();
 
             while (exp_point >= 1)
@@ -151,8 +228,8 @@ namespace RPG_Kob
                 }
                 Console.Clear();
             }
-           
 
+            spellBook.LevelUp(lvl);
 
         }
     }

@@ -52,6 +52,14 @@ namespace RPG_Kob
                         action = true;
                         break;
                     case "2":
+                        Console.Clear();
+                        // spellbook
+                        p.ShowSpell();
+                        Console.WriteLine("(x) Zakmnij książke");
+                        string w = Console.ReadLine();
+                        if (w == "x") break;
+                        p.Use_Spell(w);
+                        //action = true; // spell nie marnuje akcji
                         break;
                     case "3":
                         while (true)
@@ -70,7 +78,11 @@ namespace RPG_Kob
                     default:
                         break;
                 }
-                if (END) break;
+                if (END)
+                {
+                    p.ResetStats();
+                    break;
+                }
 
                 if (action) p.GetDmg(e.Attack());
 
@@ -109,7 +121,7 @@ namespace RPG_Kob
                              " Wiedza: " + p.I +
                              " Szansa na Kryta: " + p.Crit + "%" +
                              " Szansa na Unik: " + p.Dodge + "%");
-            Console.WriteLine("Życie: " + p.Hp);
+            Console.WriteLine("Życie: " + p.Hp + " Mana: " + p.mana);
             //action
             Console.WriteLine("(1) Atak, (2) Ksiązka, (3) Plecak");
 

@@ -10,9 +10,18 @@ namespace RPG_Kob
 {
     class Song
     {
+
+        
+        // Pozwala na wielowatkowe odtwarzanie muzyczek, ale jakos to nie działa, problem z synchronizacją
+        // Wydaje mi się, że Console.Beep jest operacją wymagającą operacji na chronionych danych (pewnie jakiś mutex)
+        // Przez co niby wiecej niż jeden wątek, ale i tak jeden czeka na beepa wcześniejszego
+        // Ale nic nie zmieniałem, wystarczy odpowiednio muzyke wpisac w pliku i bedzie dzialac na jednym
+             
+
         private int[][] _song;
         private int len;
         private int _step;
+        Thread[] Threads;
 
         public Song(List<int[]> song, int step)
         {
@@ -25,7 +34,7 @@ namespace RPG_Kob
 
         public void Play()
         {
-            Thread[] Threads = new Thread[len];
+            Threads = new Thread[len];
             int itr = 0;
 
             foreach (var i in _song)
@@ -33,25 +42,26 @@ namespace RPG_Kob
 
             itr = 0;
 
-            foreach (var i in Threads)
-                i.Start(_song[itr++]);
+                foreach (var i in Threads)
+                    i.Start(_song[itr++]);
         }
-
 
         private void _Play(object obj)
         {
-
             int[] i = (int[])obj;
-            foreach (var _i in i)
+            while (Program.music)
             {
-                if (_i == -1)
-                    System.Threading.Thread.Sleep(1000 / _step);
-                else  
+                foreach (var _i in i)
                 {
-                    Console.Beep(_i, 1000 / _step);
+                    if (_i == -1)
+                        System.Threading.Thread.Sleep(1000 / _step);
+                    else
+                    {
+                        Console.Beep(_i, 1000 / _step);
+                    }
                 }
-            }
-        }  
+            } 
+        }
     }
 
     class Music
@@ -173,7 +183,6 @@ namespace RPG_Kob
                         {
                             
                             nutes = line.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries);
-
                             converted.Add(new int[nutes.Length]);
 
                             for (int i = 0; i < nutes.Length; i++)

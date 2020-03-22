@@ -13,7 +13,6 @@ namespace RPG_Kob
 
         
         readonly char[] enemies = Enemy._first_time_enemy.Select(i => i.Key).ToArray();
-        // TODO: Pozbyć się stałych
         readonly char[] items = { 'a', 'c' };
 
         private readonly List<Enemy> enemies_list = new List<Enemy>();

@@ -77,7 +77,7 @@ namespace RPG_Kob
             this.model = models[type];
             this.SetStats(stats[type]);
 
-            this.Exp = 100;   
+            this.Exp = 50;   
         }
 
         public bool CheckLoc(Point p)

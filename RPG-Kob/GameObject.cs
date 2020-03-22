@@ -80,13 +80,13 @@ namespace RPG_Kob
 
         private bool Is_Crit()
         {
-            if(r.Next(1, 100 / critChance) == 1) return true;
+            if(critChance != 0 && r.Next(1, 100 / critChance) == 1) return true;
             return false;
         }
 
         private bool Is_Dodge()
         {
-            if (r.Next(1, 100 / dodgeChance) == 1) return true;
+            if (dodgeChance != 0 &&  r.Next(1, 100 / dodgeChance) == 1) return true;
             return false;
         }
     }
